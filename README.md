@@ -1,7 +1,7 @@
 # KaliForge
 
 <p align="center">
- <img src=".assets/KaliForge.png" >
+ <img height=400px weight=400px src=".assets/KaliForge.png" >
 </p>
 
 ## Instructions
