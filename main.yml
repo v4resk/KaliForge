@@ -1,0 +1,20 @@
+---
+- name: "Customizing Parrot"
+  hosts: localhost
+  connection: local
+  roles:
+    - role: "roles/install-tools"
+    - role: "roles/config-tmux"
+    - role: "roles/config-terminal"
+    - role: "roles/config-browser"
+    - role: "roles/config-logging"
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_user_id }}" 
+          visual_studio_code_extensions:
+            - streetsidesoftware.code-spell-checker
+            - ms-python.python
+            - DEVSENSE.phptools-vscode
+            - GitHub.copilot-nightly
+            - snyk-security.snyk-vulnerability-scanner
+
