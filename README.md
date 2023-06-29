@@ -1,5 +1,9 @@
 # KaliForge
 
+<p align="center">
+ <img src=".assets/KaliForge.png" >
+</p>
+
 ## Instructions
 
 Install ansible
