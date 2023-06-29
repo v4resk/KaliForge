@@ -21,7 +21,7 @@ ansible-galaxy install -r requirements.yml
 
 Run it
 ```bash
-ansible-playbook main.yml
+ansible-playbook main.yml -K
 ```
 
 ## References
