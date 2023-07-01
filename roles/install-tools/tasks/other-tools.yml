@@ -1,0 +1,20 @@
+---
+- name: "Download Ngrok"
+  ansible.builtin.shell:
+    cmd: "wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O /tmp/ngrok-v3-stable-linux-amd64.tgz"
+
+- name: "Install Ngrok"
+  ansible.builtin.shell:
+    cmd: "tar xvzf /tmp/ngrok-v3-stable-linux-amd64.tgz -C /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/"
+
+- name: "Wget Github binaries"
+  ansible.builtin.shell:
+    cmd: |
+     wget https://github.com/int0x33/nc.exe/raw/master/nc.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/nc.exe
+     wget https://github.com/int0x33/nc.exe/raw/master/nc64.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/nc64.exe
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/ncat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/ncat
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/socat
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/nmap
+     wget https://www.exploit-db.com/download/47163 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/Pkexec_PTRACE_TRACEME-CVE-2019-13272.c
+     wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/PowerUp.ps1
+     wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/churrasco.exe

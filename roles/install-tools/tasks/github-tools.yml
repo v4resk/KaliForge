@@ -1,0 +1,76 @@
+---
+- name: "Installing useful root github repos"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.location }}"
+  loop:
+    - { repo: "https://github.com/danielmiessler/SecLists", location: "/usr/share/SecLists" }
+  become: true
+  become_method: sudo
+
+- name: "Installing useful github repos"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.location }}"
+  loop:
+    - { repo: "https://github.com/Flangvik/SharpCollection", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/SharpCollection" }
+    - { repo: "https://github.com/r3motecontrol/Ghostpack-CompiledBinaries", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/Ghostpack-CompiledBinaries" }
+    - { repo: "https://github.com/andrew-d/static-binaries/", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Bin/static-binaries" }
+    - { repo: "https://github.com/rebootuser/LinEnum", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/LinEnums" }
+    - { repo: "https://github.com/The-Z-Labs/linux-exploit-suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/linux-exploit-suggester" }
+    - { repo: "https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/CVE-2021-3560-Polkit-Privilege-Esclation" }
+    - { repo: "https://github.com/ly4k/PwnKit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-ly4k-CVE-2021-4034" }
+    - { repo: "https://github.com/arthepsy/CVE-2021-4034", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-arthepsy-CVE-2021-4034" }
+    - { repo: "https://github.com/worawit/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-worawit-CVE-2021-3156" }
+    - { repo: "https://github.com/blasty/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-blasty-CVE-2021-3156" }
+    - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PostExploit/PowerSploit" }
+    - { repo: "https://github.com/bitsadmin/wesng", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/wesng" }
+    - { repo: "https://github.com/AonCyberLabs/Windows-Exploit-Suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Windows-Exploit-Suggester" }
+    - { repo: "https://github.com/ohpe/juicy-potato", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato" }
+    - { repo: "https://github.com/breenmachine/RottenPotatoNG", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RottenPotatoNG" }
+
+- name: Create temporary build directory
+  ansible.builtin.tempfile:
+    state: directory
+  register: build_dir
+
+- name: "Copying python script to download github releases"
+  copy:
+    src: "files/githubdownload.py"
+    dest: "{{ build_dir.path }}/githubdownload.py"
+    mode: 0755
+
+- name: "Downloading github releases"
+  shell: "{{ build_dir.path }}/githubdownload.py {{ item.repo }} {{ item.regex }} {{ item.location }} {% if item.filename is defined %}{{ item.filename }}{% endif %}"
+  loop:
+  #Pivoting Tools
+    - { repo: "jpillora/chisel",  regex: "_linux_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x64" }
+    - { repo: "jpillora/chisel",  regex: "_linux_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x86" }
+    - { repo: "jpillora/chisel",  regex: "_windows_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x64.exe" }
+    - { repo: "jpillora/chisel",  regex: "_windows_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x86.exe" }
+    #- { repo: "jpillora/chisel",  regex: "_darwin_amd64", location: "/opt/chisel", filename: "chisel_osx" }
+  #PrivEsc Tools
+    - { repo: "carlospolop/PEASS-ng",  regex: "linpeas.sh", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "linpeas.sh" }
+    - { repo: "DominicBreuker/pspy",  regex: "pspy32", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy32" }
+    - { repo: "DominicBreuker/pspy",  regex: "pspy64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy64" }
+    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx64.exe"}
+    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx86.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx86.exe"}
+    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer32.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer32.exe"}
+    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer64.exe"}
+    - { repo: "antonioCoco/RoguePotato",  regex: "RoguePotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RoguePotato"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET2.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET2.exe"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET35.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET35.exe"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe"}
+    #- { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
+  #AD Tools
+    # - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/opt/" }
+  #Post Exploit tools
+
+  async: 45
+  poll: 0
+
+- name: Remove temporary build directory
+  ansible.builtin.file:
+    path: "{{ build_dir.path }}"
+    state: absent
+  when: build_dir.path is defined
