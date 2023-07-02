@@ -9,3 +9,6 @@
     - { name: 'crackmapexec', url: 'git+https://github.com/mpgn/CrackMapExec.git' }
     - { name: 'certipy-ad', url: 'git+https://github.com/ly4k/Certipy.git' }
     - { name: 'pwncat-cs', url: 'git+https://github.com/calebstewart/pwncat.git' }
+    - { name: 'pwncat', url: 'pwncat' }
+    - { name: 'bloodhound', url: 'git+https://github.com/fox-it/BloodHound.py.git' }
+    - { name: 'pypykatz', url: 'git+https://github.com/skelsec/pypykatz.git' }

@@ -26,7 +26,6 @@
     - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PostExploit/PowerSploit" }
     - { repo: "https://github.com/bitsadmin/wesng", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/wesng" }
     - { repo: "https://github.com/AonCyberLabs/Windows-Exploit-Suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Windows-Exploit-Suggester" }
-    - { repo: "https://github.com/ohpe/juicy-potato", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato" }
     - { repo: "https://github.com/breenmachine/RottenPotatoNG", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RottenPotatoNG" }
     - { repo: "https://github.com/abatchy17/WindowsExploits", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib" }
     - { repo: "https://github.com/worawit/MS17-010", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib/MS17-010-Worawit" }
@@ -37,7 +36,13 @@
     - { repo: "https://github.com/danielbohannon/Invoke-Obfuscation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/Invoke-Obfuscation" }
     - { repo: "https://github.com/wunderwuzzi23/this_is_fine_wuzzi", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Python/PythonSimplePackage" }
     - { repo: "https://github.com/mxrch/snmp-shell", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/snmp-shell" }
-
+    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PKINITtools" }
+    - { repo: "https://github.com/Kevin-Robertson/Powermad", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/Powermad" }
+    - { repo: "https://github.com/ly4k/PetitPotam", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PetitPotam" }
+    - { repo: "https://github.com/L-codes/Neo-reGeorg", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Exfiltration/Neo-reGeorg" }
+    - { repo: "https://github.com/internetwache/GitTools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/GitTools" }
+    - { repo: "https://github.com/Mebus/cupp", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/Cupp" }
+    - { repo: "https://github.com/shroudri/username_generator", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/username_generator" }
 
 - name: Create temporary build directory
   ansible.builtin.tempfile:
@@ -68,14 +73,15 @@
     - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer32.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer32.exe"}
     - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer64.exe"}
     - { repo: "antonioCoco/RoguePotato",  regex: "RoguePotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RoguePotato"}
+    - { repo: "ohpe/juicy-potato",  regex: "JuicyPotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET2.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET2.exe"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET35.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET35.exe"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe"}
     #- { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
   #AD Tools
-    # - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/opt/" }
-  #Post Exploit tools
-
+    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory", filename: "BloodHound" }
+    - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory" , filename: "SharpHound"}
+  #Misc Tools
   async: 45
   poll: 0
 

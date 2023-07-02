@@ -7,6 +7,16 @@
   ansible.builtin.shell:
     cmd: "tar xvzf /tmp/ngrok-v3-stable-linux-amd64.tgz -C /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/"
 
+- name: "Download Dive"
+  ansible.builtin.shell:
+    cmd: "wget https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb -O /home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/Docker-Dive/dive_0.10.0_linux_amd64.deb"
+
+- name: "Install Dive"
+  ansible.builtin.shell:
+    become: true
+    become_method: sudo
+    cmd: "apt install /home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/Docker-Dive/dive_0.10.0_linux_amd64.deb"
+
 - name: "Wget Github binaries"
   ansible.builtin.shell:
     cmd: |
@@ -18,40 +28,23 @@
      wget https://www.exploit-db.com/download/47163 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/Pkexec_PTRACE_TRACEME-CVE-2019-13272.c
      wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/PowerUp.ps1
      wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/churrasco.exe
-     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/
-     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/
-     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/SharedLib/
-     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/DLL/
      wget https://raw.githubusercontent.com/borjmz/aspx-reverse-shell/master/shell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/reverse_shell.aspx
      wget https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/awen%20asp.net%20webshell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/webshell.aspx
      wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/reverse-shell.php
+     wget https://raw.githubusercontent.com/cytopia/pwncat/master/bin/pwncat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Bash/pwncat
+     wget https://github.com/fwbuilder/w32-bin/raw/master/plink.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/plink.exe
+     wget https://raw.githubusercontent.com/ehusby/mslink/main/mslink_v1.3.sh -O /home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/mslink_v1.3.sh
+     wget https://raw.githubusercontent.com/dirkjanm/krbrelayx/master/printerbug.py -O /home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/printerbug.py
 
-- name: "Copying reverse-shell-proc-open.php to RedTeam folder"
-  copy:
-    src: "files/reverse-shell-proc-open.php"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/reverse-shell-proc-open.php"
-
-- name: "Copying webshell.php to RedTeam folder"
-  copy:
-    src: "files/webshell.php"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/webshell.php"
-
-- name: "Copying iex-stagers.txt to RedTeam folder"
-  copy:
-    src: "files/iex-stagers.txt"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/iex-stagers.txt"
-
-- name: "Copying reverse-shell.ps1 to RedTeam folder"
-  copy:
-    src: "files/reverse-shell.ps1"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/reverse-shell.ps1"
-
-- name: "Copying shared-library.c to RedTeam folder"
-  copy:
-    src: "files/shared-library.c"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/SharedLib/shared-library.c"
-
-- name: "Copying template-windows-dll.c to RedTeam folder"
-  copy:
-    src: "files/template-windows-dll.c"
-    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/DLL/template-windows-dll.c"
+- name: "Copy files to RedTeam folder"
+  ansible.builtin.copy:
+    src: "files/{{ item.src }}"
+    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/{{ item.dest }}"
+  loop:
+    - { src: "reverse-shell-proc-open.php", dest: "Shells/PHP/reverse-shell-proc-open.php" }
+    - { src: "webshell.php", dest: "Shells/PHP/webshell.php" }
+    - { src: "iex-stagers.txt", dest: "Shells/PowerShell/iex-stagers.txt" }
+    - { src: "reverse-shell.ps1", dest: "Shells/PowerShell/reverse-shell.ps1" }
+    - { src: "shared-library.c", dest: "Shells/SharedLib/shared-library.c" }
+    - { src: "template-windows-dll.c", dest: "Shells/DLL/template-windows-dll.c"}
+    - { src: "upload.php", dest: "Exfiltration/upload.php"}

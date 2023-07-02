@@ -1,0 +1,47 @@
+---
+- name: "Create RedTeam directories"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/{{ item }}"
+    state: directory
+  loop:
+    - Linux
+    - Windows
+    - Shells
+    - ActiveDirectory/SharpHound
+    - ActiveDirectory/BloodHound
+    - Exfiltration
+    - MiscTools/WordListsGen
+    - MiscTools/Docker-Dive
+
+- name: "Create Shells directories"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/{{ item }}"
+    state: directory
+  loop:
+    - ASPX
+    - PHP
+    - SharedLib
+    - DLL
+    - Bash
+    - PowerShell
+    - Python
+    - VBA
+
+- name: "Create Linux directories"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/{{ item }}"
+    state: directory
+  loop:
+    - Bin
+    - Pivoting
+    - PrivEsc
+
+- name: "Create Windows directories"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/{{ item }}"
+    state: directory
+  loop:
+    - Bin
+    - Pivoting
+    - PrivEsc
+    - PostExploit
