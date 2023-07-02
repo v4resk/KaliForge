@@ -18,9 +18,11 @@
      wget https://www.exploit-db.com/download/47163 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/Pkexec_PTRACE_TRACEME-CVE-2019-13272.c
      wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/PowerUp.ps1
      wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/churrasco.exe
+     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/
      wget https://raw.githubusercontent.com/borjmz/aspx-reverse-shell/master/shell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/reverse_shell.aspx
-     wget https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/awen%20asp.net%20webshell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/shell.aspx
-     wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/reverse-shell.aspx
+     wget https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/awen%20asp.net%20webshell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/webshell.aspx
+     mkdir /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/
+     wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/reverse-shell.php
 
 - name: "Copying reverse-shell-proc-open.php to RedTeam folder"
   copy:
@@ -41,6 +43,11 @@
   copy:
     src: "files/reverse-shell.ps1"
     dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/reverse-shell.ps1"
+
+- name: "Copying shared-library.c to RedTeam folder"
+  copy:
+    src: "files/reverse-shell.ps1"
+    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/SharedLib/shared-library.c"
 
 - name: "Copying shared-library.c to RedTeam folder"
   copy:

@@ -1,3 +1,12 @@
 ---
 - name: "install Kerbrute"
   shell: go install github.com/ropnop/kerbrute@master
+
+- name: "install Ivy"
+  ansible.builtin.shell:
+    cmd: |
+     git clone https://github.com/optiv/Ivy /home/{{ ansible_user_id }}/Documents/RedTeam/VBA/Ivy
+     cd /home/{{ ansible_user_id }}/Documents/RedTeam/VBA/Ivy
+     go get github.com/fatih/color
+     go get github.com/KyleBanks/XOREncryption/Go
+     go build Ivy.go
