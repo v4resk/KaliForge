@@ -8,6 +8,7 @@
     - role: "roles/config-terminal"
     - role: "roles/config-browser"
     - role: "roles/config-logging"
+    - role: "roles/config-obsidian"
     #Visual-Studio-code Setup   
     - role: gantsign.visual-studio-code
       users:

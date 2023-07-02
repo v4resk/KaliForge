@@ -1,2 +1,40 @@
 ---
 # tasks file for config-obsidian
+- name: "Give execution permissions to obsidian"
+  ansible.builtin.file:
+    path: /home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian/Obsidian.AppImage
+    mode: 0744
+
+- name: "Creating config folder"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/.config/obsidian/"
+    state: directory
+
+- name: "Settings up obsidian"
+  template: 
+    src: "templates/obsidian.json.j2"
+    dest: "/home/{{ ansible_user_id }}/.config/obsidian/obsidian.json"
+
+- name: "Creating the vault folder"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian/MyVault/"
+    state: directory
+
+- name: "Creating vault sub-folders"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian/MyVault/{{ item }}"
+    state: directory
+  loop:
+    - Templates
+    - HTB
+
+- name: "Configuring the vault"
+  ansible.builtin.copy:
+    src: "files/{{ item.src }}"
+    dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian/MyVault/{{ item.dest }}"
+  loop:
+    - { src: ".obsidian", dest: "./" }
+    - { src: "Endpoint Pentest  - Template.md", dest: "Templates/Endpoint Pentest  - Template.md" }
+    - { src: "OSCP-exam-report-template_whoisflynn_v3.2.md", dest: "Templates/OSCP-exam-report-template_whoisflynn_v3.2.md" }
+
+
