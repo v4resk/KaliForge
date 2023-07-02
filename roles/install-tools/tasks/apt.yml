@@ -17,6 +17,7 @@
     state: absent
   become: true
   become_method: sudo
+
 - name: "Installing Packages"
   package:
     name:
@@ -27,6 +28,8 @@
       - rsyslog
       - golang
       - ufw
+      - docker
+      - docker-compose
     state: latest
   become: true
   become_method: sudo

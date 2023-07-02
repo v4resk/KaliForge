@@ -245,7 +245,7 @@ alias ll='ls -larth'
 alias la='ls -A'
 alias l='ls -CF'
 alias ida="/home/$USER/BlueTeam/idafree-8.1/ida64"
-alias obsidian="/home/$USER/opt/Obsidian/Obsidian-1.1.16.AppImage"
+alias obsidian="/home/$USER/Documents/RedTeam/Reports/Obsidian/Obsidian.AppImage"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -263,5 +263,5 @@ fi
 export PATH="$PATH:/home/$USER/.local/bin:/home/$USER/go/bin"
 
 #Arsenal By OCD
-alias arsenal='/home/v4resk/Documents/RedTeam/Tools/arsenal/run -t'
+alias arsenal="/home/$USER/Documents/RedTeam/Tools/arsenal/run -t"
 

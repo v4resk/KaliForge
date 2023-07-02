@@ -40,6 +40,7 @@
   ansible.builtin.copy:
     src: "files/{{ item.src }}"
     dest: "/home/{{ ansible_user_id }}/Documents/RedTeam/{{ item.dest }}"
+    mode: "{% if item.mode is defined %}{{ item.mode }}{% endif %}"
   loop:
     - { src: "reverse-shell-proc-open.php", dest: "Shells/PHP/reverse-shell-proc-open.php" }
     - { src: "webshell.php", dest: "Shells/PHP/webshell.php" }
@@ -48,3 +49,4 @@
     - { src: "shared-library.c", dest: "Shells/SharedLib/shared-library.c" }
     - { src: "template-windows-dll.c", dest: "Shells/DLL/template-windows-dll.c"}
     - { src: "upload.php", dest: "Exfiltration/upload.php"}
+    - { src: "pwndoc.sh", dest: "Reports/pwndoc/pwndoc.sh", mode: 744}

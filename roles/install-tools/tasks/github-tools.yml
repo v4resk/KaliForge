@@ -44,6 +44,8 @@
     - { repo: "https://github.com/Mebus/cupp", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/Cupp" }
     - { repo: "https://github.com/shroudri/username_generator", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/username_generator" }
     - { repo: "https://github.com/SECFORCE/SNMP-Brute", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Network/SNMP/SNMP-Brute" }
+    - { repo: "https://github.com/pwndoc/pwndoc", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/pwndoc" }
+    - { repo: "https://github.com/noraj/OSCP-Exam-Report-Template-Markdown", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/OSCP-Exam-Report-Template-Markdown" }
 
 - name: Create temporary build directory
   ansible.builtin.tempfile:
@@ -74,17 +76,18 @@
     - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer32.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer32.exe"}
     - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer64.exe"}
     - { repo: "antonioCoco/RoguePotato",  regex: "RoguePotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RoguePotato"}
-    - { repo: "ohpe/juicy-potato",  regex: "JuicyPotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato"}
+    - { repo: "ohpe/juicy-potato",  regex: "JuicyPotato.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato", filename: "JuicyPotato.exe"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET2.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET2.exe"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET35.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET35.exe"}
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe"}
     #- { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
   #AD Tools
-    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/BloodHound" }
     - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/SharpHound"}
-  #Misc Tools
-  async: 45
-  poll: 0
+    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/"}
+  #Report Tools
+    - { repo: "obsidianmd/obsidian-releases", regex: "Obsidian-.*AppImage", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian", filename: "Obsidian.AppImage"}
+  async: 70
+  poll: 5
 
 - name: Remove temporary build directory
   ansible.builtin.file:
