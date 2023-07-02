@@ -12,10 +12,10 @@
     cmd: "wget https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb -O /home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/Docker-Dive/dive_0.10.0_linux_amd64.deb"
 
 - name: "Install Dive"
-  ansible.builtin.shell:
-    become: true
-    become_method: sudo
-    cmd: "apt install /home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/Docker-Dive/dive_0.10.0_linux_amd64.deb"
+  become: true
+  become_method: sudo
+  apt:
+    deb:  "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/Docker-Dive/dive_0.10.0_linux_amd64.deb"
 
 - name: "Wget Github binaries"
   ansible.builtin.shell:

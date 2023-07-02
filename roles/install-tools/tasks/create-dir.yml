@@ -7,11 +7,12 @@
     - Linux
     - Windows
     - Shells
-    - ActiveDirectory/SharpHound
-    - ActiveDirectory/BloodHound
+    - ActiveDirectory
     - Exfiltration
     - MiscTools/WordListsGen
     - MiscTools/Docker-Dive
+    - Network/SNMP
+    - Network/SMB
 
 - name: "Create Shells directories"
   ansible.builtin.file:

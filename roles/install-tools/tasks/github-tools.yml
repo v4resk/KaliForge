@@ -43,6 +43,7 @@
     - { repo: "https://github.com/internetwache/GitTools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/GitTools" }
     - { repo: "https://github.com/Mebus/cupp", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/Cupp" }
     - { repo: "https://github.com/shroudri/username_generator", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/username_generator" }
+    - { repo: "https://github.com/SECFORCE/SNMP-Brute", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Network/SNMP/SNMP-Brute" }
 
 - name: Create temporary build directory
   ansible.builtin.tempfile:
@@ -79,8 +80,8 @@
     - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe"}
     #- { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
   #AD Tools
-    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory", filename: "BloodHound" }
-    - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory" , filename: "SharpHound"}
+    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/BloodHound" }
+    - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/SharpHound"}
   #Misc Tools
   async: 45
   poll: 0
