@@ -3,3 +3,6 @@
   copy:
     src: "{{ role_path }}/files/.zshrc"
     dest: "{{ ansible_env.HOME }}"
+- name: "Removing Kali developers msg"
+  ansible.builtin.shell:
+    cmd: touch /home/{{ ansible_user_id }}/.hushlogin

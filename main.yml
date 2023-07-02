@@ -8,6 +8,7 @@
     - role: "roles/config-terminal"
     - role: "roles/config-browser"
     - role: "roles/config-logging"
+    #Visual-Studio-code Setup   
     - role: gantsign.visual-studio-code
       users:
         - username: "{{ ansible_user_id }}" 
@@ -17,4 +18,8 @@
             - DEVSENSE.phptools-vscode
             - GitHub.copilot-nightly
             - snyk-security.snyk-vulnerability-scanner
-
+    #Keyboard Setup
+    - role: gantsign.keyboard
+      keyboard_model: pc105
+      keyboard_layout: fr
+      keyboard_variant: latin9

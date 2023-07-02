@@ -1,2 +1,3 @@
 ---
-# tasks file for config-logging
+- include: "ufw.yml"
+- include: "auditd.yml"
