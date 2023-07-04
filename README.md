@@ -30,5 +30,20 @@ Run it
 ansible-playbook main.yml -K
 ```
 
+## Features
+
+| **Status** | **Description** |
+|------|------|
+|   🗸  | Configure BurpSuite & its certificate in firefox     |
+|   🗸  | Configure Obsidian, extensions, vault & templates     |
+|   🗸  | Configure Tmux & zsh    |
+|   🗸  | Install Visual-studio-code with some extensions  |
+|   🗸  | Install some extensions in firefox     |
+|   🗸  | Configure logging with ufw, iptables, rsyslog, auditd    |
+|   🗸  | Configure an Azerty Keyboard (Fr kerboard layout)    |
+|   🗸  | Install many offensive tools in /home/$USER/Documents/RedTeam    |
+|  ❌  | Install many defensive tools in /home/$USER/Documents/BlueTeam     |
+|  🗸   | Install many go, python, ruby tools  |
+
 ## References
 KaliForge was largely inspired by IppSec's [parrot-build](https://github.com/IppSec/parrot-build) project.
