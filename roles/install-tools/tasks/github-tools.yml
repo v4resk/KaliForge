@@ -13,40 +13,42 @@
     repo: "{{ item.repo }}"
     dest: "{{ item.location }}"
   loop:
-    - { repo: "https://github.com/Flangvik/SharpCollection", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/SharpCollection" }
-    - { repo: "https://github.com/r3motecontrol/Ghostpack-CompiledBinaries", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/Ghostpack-CompiledBinaries" }
-    - { repo: "https://github.com/andrew-d/static-binaries/", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Bin/static-binaries" }
-    - { repo: "https://github.com/rebootuser/LinEnum", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/LinEnums" }
-    - { repo: "https://github.com/The-Z-Labs/linux-exploit-suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/linux-exploit-suggester" }
-    - { repo: "https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/CVE-2021-3560-Polkit-Privilege-Esclation" }
-    - { repo: "https://github.com/ly4k/PwnKit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-ly4k-CVE-2021-4034" }
-    - { repo: "https://github.com/arthepsy/CVE-2021-4034", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-arthepsy-CVE-2021-4034" }
-    - { repo: "https://github.com/worawit/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-worawit-CVE-2021-3156" }
-    - { repo: "https://github.com/blasty/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-blasty-CVE-2021-3156" }
-    - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PostExploit/PowerSploit" }
-    - { repo: "https://github.com/bitsadmin/wesng", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/wesng" }
-    - { repo: "https://github.com/AonCyberLabs/Windows-Exploit-Suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Windows-Exploit-Suggester" }
-    - { repo: "https://github.com/breenmachine/RottenPotatoNG", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RottenPotatoNG" }
-    - { repo: "https://github.com/abatchy17/WindowsExploits", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib" }
-    - { repo: "https://github.com/worawit/MS17-010", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib/MS17-010-Worawit" }
-    - { repo: "https://github.com/brightio/penelope", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Bash/Penelope" }
-    - { repo: "https://github.com/samratashok/nishang", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/nishang" }
-    - { repo: "https://github.com/t3l3machus/hoaxshell", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/hoaxshell" }
-    - { repo: "https://github.com/trustedsec/unicorn", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/unicorn" }
-    - { repo: "https://github.com/danielbohannon/Invoke-Obfuscation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/Invoke-Obfuscation" }
-    - { repo: "https://github.com/wunderwuzzi23/this_is_fine_wuzzi", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Python/PythonSimplePackage" }
-    - { repo: "https://github.com/mxrch/snmp-shell", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/snmp-shell" }
-    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PKINITtools" }
-    - { repo: "https://github.com/Kevin-Robertson/Powermad", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/Powermad" }
-    - { repo: "https://github.com/ly4k/PetitPotam", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PetitPotam" }
-    - { repo: "https://github.com/L-codes/Neo-reGeorg", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Exfiltration/Neo-reGeorg" }
-    - { repo: "https://github.com/internetwache/GitTools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/GitTools" }
-    - { repo: "https://github.com/Mebus/cupp", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/Cupp" }
-    - { repo: "https://github.com/shroudri/username_generator", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/username_generator" }
-    - { repo: "https://github.com/SECFORCE/SNMP-Brute", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Network/SNMP/SNMP-Brute" }
-    - { repo: "https://github.com/pwndoc/pwndoc", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/pwndoc" }
-    - { repo: "https://github.com/noraj/OSCP-Exam-Report-Template-Markdown", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/OSCP-Exam-Report-Template-Markdown" }
-
+    - { repo: "https://github.com/Flangvik/SharpCollection", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/SharpCollection", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/r3motecontrol/Ghostpack-CompiledBinaries", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Bin/Ghostpack-CompiledBinaries", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/andrew-d/static-binaries/", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Bin/static-binaries", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/rebootuser/LinEnum", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/LinEnums", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/The-Z-Labs/linux-exploit-suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/linux-exploit-suggester", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/CVE-2021-3560-Polkit-Privilege-Esclation", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/ly4k/PwnKit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-ly4k-CVE-2021-4034", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/arthepsy/CVE-2021-4034", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/PwnKit-arthepsy-CVE-2021-4034", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/worawit/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-worawit-CVE-2021-3156", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/blasty/CVE-2021-3156", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Sudo/SudoBaronSamedit-blasty-CVE-2021-3156", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PostExploit/PowerSploit", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/bitsadmin/wesng", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/wesng", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/AonCyberLabs/Windows-Exploit-Suggester", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Windows-Exploit-Suggester", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/breenmachine/RottenPotatoNG", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RottenPotatoNG", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/abatchy17/WindowsExploits", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/worawit/MS17-010", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/WindowsExploitsLib/MS17-010-Worawit", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/brightio/penelope", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Bash/Penelope", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/samratashok/nishang", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/nishang", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/t3l3machus/hoaxshell", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/hoaxshell", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/trustedsec/unicorn", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/unicorn", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/danielbohannon/Invoke-Obfuscation", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PowerShell/Invoke-Obfuscation", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/wunderwuzzi23/this_is_fine_wuzzi", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Python/PythonSimplePackage", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/mxrch/snmp-shell", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Shells/snmp-shell", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PKINITtools", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/Greenwolf/ntlm_theft", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/ntlm_theft", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/Processus-Thief/HEKATOMB", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/HEKATOMB", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/cddmp/enum4linux-ng", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/enum4linux-ng", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/Kevin-Robertson/Powermad", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/Powermad", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/ly4k/PetitPotam", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/PetitPotam", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/L-codes/Neo-reGeorg", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Exfiltration/Neo-reGeorg", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/internetwache/GitTools", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/GitTools", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/Mebus/cupp", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/Cupp", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/shroudri/username_generator", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/MiscTools/WordListsGen/username_generator", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/SECFORCE/SNMP-Brute", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Network/SNMP/SNMP-Brute", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/pwndoc/pwndoc", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/pwndoc", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/dirkjanm/CVE-2020-1472", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/ZeroLogon", token: "{{github_api_key}}" }
 - name: Create temporary build directory
   ansible.builtin.tempfile:
     state: directory
@@ -62,30 +64,30 @@
   shell: "{{ build_dir.path }}/githubdownload.py {{ item.repo }} {{ item.regex }} {{ item.location }} {% if item.filename is defined %}{{ item.filename }}{% endif %}"
   loop:
   #Pivoting Tools
-    - { repo: "jpillora/chisel",  regex: "_linux_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x64" }
-    - { repo: "jpillora/chisel",  regex: "_linux_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x86" }
-    - { repo: "jpillora/chisel",  regex: "_windows_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x64.exe" }
-    - { repo: "jpillora/chisel",  regex: "_windows_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x86.exe" }
+    - { repo: "jpillora/chisel",  regex: "_linux_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x64", token: "{{github_api_key}}" }
+    - { repo: "jpillora/chisel",  regex: "_linux_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/", filename: "chisel_x86", token: "{{github_api_key}}" }
+    - { repo: "jpillora/chisel",  regex: "_windows_amd64.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x64.exe" , token: "{{github_api_key}}"}
+    - { repo: "jpillora/chisel",  regex: "_windows_386.gz", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/", filename: "chisel_x86.exe", token: "{{github_api_key}}" }
     #- { repo: "jpillora/chisel",  regex: "_darwin_amd64", location: "/opt/chisel", filename: "chisel_osx" }
   #PrivEsc Tools
-    - { repo: "carlospolop/PEASS-ng",  regex: "linpeas.sh", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "linpeas.sh" }
-    - { repo: "DominicBreuker/pspy",  regex: "pspy32", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy32" }
-    - { repo: "DominicBreuker/pspy",  regex: "pspy64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy64" }
-    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx64.exe"}
-    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx86.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx86.exe"}
-    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer32.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer32.exe"}
-    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer64.exe"}
+    - { repo: "carlospolop/PEASS-ng",  regex: "linpeas.sh", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "linpeas.sh", token: "{{github_api_key}}" }
+    - { repo: "DominicBreuker/pspy",  regex: "pspy32", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy32", token: "{{github_api_key}}" }
+    - { repo: "DominicBreuker/pspy",  regex: "pspy64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/", filename: "pspy64", token: "{{github_api_key}}" }
+    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx64.exe", token: "{{github_api_key}}"}
+    - { repo: "carlospolop/PEASS-ng",  regex: "winPEASx86.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc", filename: "winPEASx86.exe", token: "{{github_api_key}}"}
+    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer32.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer32.exe", token: "{{github_api_key}}"}
+    - { repo: "itm4n/PrintSpoofer",  regex: "PrintSpoofer64.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/PrintSpoofer", filename: "PrintSpoofer64.exe", token: "{{github_api_key}}"}
     - { repo: "antonioCoco/RoguePotato",  regex: "RoguePotato.zip", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/RoguePotato"}
-    - { repo: "ohpe/juicy-potato",  regex: "JuicyPotato.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato", filename: "JuicyPotato.exe"}
-    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET2.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET2.exe"}
-    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET35.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET35.exe"}
-    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe"}
+    - { repo: "ohpe/juicy-potato",  regex: "JuicyPotato.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/juicy-potato", filename: "JuicyPotato.exe", token: "{{github_api_key}}"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET2.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET2.exe", token: "{{github_api_key}}"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET35.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET35.exe", token: "{{github_api_key}}"}
+    - { repo: "BeichenDream/GodPotato",  regex: "GodPotato-NET4.exe", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/GodPotato", filename: "GodPotato-NET4.exe", token: "{{github_api_key}}"}
     #- { repo: "WithSecureLabs/chainsaw",  regex: "chainsaw_all_", location: "/opt/" }
   #AD Tools
-    - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/SharpHound"}
-    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/"}
+    - { repo: "BloodHoundAD/SharpHound", regex: "SharpHound", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/SharpHound", token: "{{github_api_key}}"}
+    - { repo: "BloodHoundAD/BloodHound", regex: "BloodHound-linux-x64", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/", token: "{{github_api_key}}"}
   #Report Tools
-    - { repo: "obsidianmd/obsidian-releases", regex: "Obsidian-.*AppImage", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian", filename: "Obsidian.AppImage"}
+    - { repo: "obsidianmd/obsidian-releases", regex: "Obsidian-.*AppImage", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Reports/Obsidian", filename: "Obsidian.AppImage", token: "{{github_api_key}}"}
   async: 70
   poll: 5
 

@@ -50,3 +50,4 @@
     - { src: "template-windows-dll.c", dest: "Shells/DLL/template-windows-dll.c"}
     - { src: "upload.php", dest: "Exfiltration/upload.php"}
     - { src: "pwndoc.sh", dest: "Reports/pwndoc/pwndoc.sh", mode: 744}
+    - { src: "ldapSid_to_sid.py", dest: "ActiveDirectory/ldapSid_to_sid", mode: 744}

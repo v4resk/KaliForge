@@ -25,9 +25,9 @@ cd KaliForge
 ansible-galaxy install -r requirements.yml
 ```
 
-Run it
+To run it, KaliForge will need a Github access token in order to interact with the Github API, see [this page](https://docs.github.com/fr/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to create one.
 ```bash
-ansible-playbook main.yml -K
+ansible-playbook main.yml -K --extra-vars="github_api_key=[your_github_api_key]"
 ```
 
 ## Features
