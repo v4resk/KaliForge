@@ -4,8 +4,10 @@
     path: "/home/{{ ansible_user_id }}/Documents/RedTeam/{{ item }}"
     state: directory
   loop:
-    - Linux
-    - Windows
+    - PostExploit
+    - Bin
+    - PrivEsc
+    - Pivoting
     - Shells
     - ActiveDirectory
     - Exfiltration
@@ -13,6 +15,7 @@
     - MiscTools/Docker-Dive
     - Network/SNMP
     - Network/SMB
+    - C2
 
 - name: "Create Shells directories"
   ansible.builtin.file:
@@ -30,19 +33,24 @@
 
 - name: "Create Linux directories"
   ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Linux/{{ item }}"
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/PrivEsc/{{ item }}"
     state: directory
   loop:
-    - Bin
-    - Pivoting
-    - PrivEsc
+    - Windows
+    - Linux
 
 - name: "Create Windows directories"
   ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Windows/{{ item }}"
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/{{ item }}"
     state: directory
   loop:
-    - Bin
-    - Pivoting
-    - PrivEsc
-    - PostExploit
+    - Windows
+    - Linux
+
+- name: "Create Windows directories"
+  ansible.builtin.file:
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/{{ PostExploit }}"
+    state: directory
+  loop:
+    - Windows
+    - Linux

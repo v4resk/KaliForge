@@ -5,7 +5,7 @@
 
 - name: "Install Ngrok"
   ansible.builtin.shell:
-    cmd: "tar xvzf /tmp/ngrok-v3-stable-linux-amd64.tgz -C /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/"
+    cmd: "tar xvzf /tmp/ngrok-v3-stable-linux-amd64.tgz -C /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Linux/"
 
 - name: "Download Dive"
   ansible.builtin.shell:
@@ -20,19 +20,19 @@
 - name: "Wget Github binaries"
   ansible.builtin.shell:
     cmd: |
-     wget https://github.com/int0x33/nc.exe/raw/master/nc.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/nc.exe
-     wget https://github.com/int0x33/nc.exe/raw/master/nc64.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/nc64.exe
-     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/ncat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/ncat
-     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/socat
-     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/Pivoting/nmap
-     wget https://www.exploit-db.com/download/47163 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Linux/PrivEsc/ExploitsLib/Polkit/Pkexec_PTRACE_TRACEME-CVE-2019-13272.c
-     wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/PowerUp.ps1
-     wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/PrivEsc/Potatoes/churrasco.exe
+     wget https://github.com/int0x33/nc.exe/raw/master/nc.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Windows/nc.exe
+     wget https://github.com/int0x33/nc.exe/raw/master/nc64.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Windows/nc64.exe
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/ncat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Linux/ncat
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Linux/socat
+     wget https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/nmap -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Linux/nmap
+     wget https://www.exploit-db.com/download/47163 -O /home/{{ ansible_user_id }}/Documents/RedTeam/PrivEsc/Linux/ExploitsLib/Polkit/Pkexec_PTRACE_TRACEME-CVE-2019-13272.c
+     wget https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1 -O /home/{{ ansible_user_id }}/Documents/RedTeam/PrivEsc/Windows/PowerUp.ps1
+     wget https://github.com/Re4son/Churrasco/raw/master/churrasco.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/PrivEsc/Windows/Potatoes/churrasco.exe
      wget https://raw.githubusercontent.com/borjmz/aspx-reverse-shell/master/shell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/reverse_shell.aspx
      wget https://raw.githubusercontent.com/xl7dev/WebShell/master/Aspx/awen%20asp.net%20webshell.aspx -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/ASPX/webshell.aspx
      wget https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/PHP/reverse-shell.php
      wget https://raw.githubusercontent.com/cytopia/pwncat/master/bin/pwncat -O /home/{{ ansible_user_id }}/Documents/RedTeam/Shells/Bash/pwncat
-     wget https://github.com/fwbuilder/w32-bin/raw/master/plink.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Windows/Pivoting/plink.exe
+     wget https://github.com/fwbuilder/w32-bin/raw/master/plink.exe -O /home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/Windows/plink.exe
      wget https://raw.githubusercontent.com/ehusby/mslink/main/mslink_v1.3.sh -O /home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/mslink_v1.3.sh
      wget https://raw.githubusercontent.com/dirkjanm/krbrelayx/master/printerbug.py -O /home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/printerbug.py
 
