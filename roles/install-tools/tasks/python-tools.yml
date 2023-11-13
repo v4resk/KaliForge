@@ -13,3 +13,4 @@
     - { name: 'bloodhound', url: 'git+https://github.com/fox-it/BloodHound.py.git' }
     - { name: 'pypykatz', url: 'git+https://github.com/skelsec/pypykatz.git' }
     - {name: 'ldif2bloodhound', url: 'git+https://github.com/SySS-Research/ldif2bloodhound.git'}
+    - {name: 'coercer', url: 'coercer'}
