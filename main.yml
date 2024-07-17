@@ -19,6 +19,7 @@
             - DEVSENSE.phptools-vscode
             - GitHub.copilot-nightly
             - snyk-security.snyk-vulnerability-scanner
+            - charliermarsh.ruff
     #Keyboard Setup
     - role: gantsign.keyboard
       keyboard_model: pc105
