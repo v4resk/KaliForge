@@ -30,6 +30,7 @@
       - ufw
       - docker
       - docker-compose
+      - evil-winrm
     state: latest
   become: true
   become_method: sudo

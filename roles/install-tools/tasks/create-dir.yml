@@ -16,6 +16,8 @@
     - Network/SNMP
     - Network/SMB
     - C2
+    - Recon
+    - OSINT
 
 - name: "Create Shells directories"
   ansible.builtin.file:
@@ -49,7 +51,7 @@
 
 - name: "Create Windows directories"
   ansible.builtin.file:
-    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/{{ PostExploit }}"
+    path: "/home/{{ ansible_user_id }}/Documents/RedTeam/Pivoting/{{ item }}"
     state: directory
   loop:
     - Windows

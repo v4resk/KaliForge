@@ -53,6 +53,12 @@
     - { repo: "https://github.com/blacklanternsecurity/mklnk", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/mklnk", token: "{{github_api_key}}" }
     - { repo: "https://github.com/BishopFox/sliver", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/C2/sliver", token: "{{github_api_key}}" }
     - { repo: "https://github.com/t3l3machus/Villain", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/C2/Villain", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/techgaun/github-dorks", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/Recon/github-dorks", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/micahvandeusen/gMSADumper", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/gMSADumper", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/ShutdownRepo/pywhisker", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/pywhisker", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/aniqfakhrul/powerview.py", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/powerview.py", token: "{{github_api_key}}" }
+    - { repo: "https://github.com/garrettfoster13/sccmhunter", location: "/home/{{ ansible_user_id }}/Documents/RedTeam/ActiveDirectory/sccmhunter", token: "{{github_api_key}}" }
+
 - name: Create temporary build directory
   ansible.builtin.tempfile:
     state: directory

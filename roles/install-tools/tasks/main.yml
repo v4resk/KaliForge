@@ -1,8 +1,8 @@
 ---
-- include: create-dir.yml
-- include: apt.yml
-- include: go-tools.yml
-- include: github-tools.yml
-- include: python-tools.yml
-- include: gem-tools.yml
-- include: other-tools.yml
+- import_tasks: create-dir.yml
+- import_tasks: apt.yml
+- import_tasks: go-tools.yml
+- import_tasks: github-tools.yml
+- import_tasks: python-tools.yml
+- import_tasks: gem-tools.yml
+- import_tasks: other-tools.yml

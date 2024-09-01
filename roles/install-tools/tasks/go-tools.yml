@@ -1,6 +1,25 @@
 ---
-- name: "install Kerbrute"
-  shell: go install github.com/ropnop/kerbrute@master
+- name: "Install Go tools"
+  shell: "go install {{ item }}"
+  loop:
+    - github.com/ropnop/kerbrute@master
+    - github.com/lc/gau/v2/cmd/gau@latest
+    - github.com/hakluke/hakrawler@latest
+    - github.com/tomnomnom/waybackurls@latest
+    - github.com/projectdiscovery/katana/cmd/katana@latest
+    - github.com/tomnomnom/qsreplace@latest
+    - github.com/projectdiscovery/httpx/cmd/httpx@latest
+    - github.com/KathanP19/Gxss@latest
+    - github.com/hahwul/dalfox/v2@latest
+    - github.com/michenriksen/gitrob@latest
+    - github.com/tomnomnom/anew@latest
+    - github.com/tomnomnom/assetfinder@latest
+    - github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+    - github.com/owasp-amass/amass/v4/...@master
+
+- name: "install gospider"
+  shell: GO111MODULE=on go install github.com/jaeles-project/gospider@latest
+
 
 - name: "install Ivy"
   ansible.builtin.shell:
