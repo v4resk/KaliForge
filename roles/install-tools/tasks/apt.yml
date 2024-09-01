@@ -28,7 +28,7 @@
       - rsyslog
       - golang
       - ufw
-      - docker
+      - docker.io
       - docker-compose
       - evil-winrm
     state: latest

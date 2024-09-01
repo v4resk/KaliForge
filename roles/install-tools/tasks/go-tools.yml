@@ -11,7 +11,6 @@
     - github.com/projectdiscovery/httpx/cmd/httpx@latest
     - github.com/KathanP19/Gxss@latest
     - github.com/hahwul/dalfox/v2@latest
-    - github.com/michenriksen/gitrob@latest
     - github.com/tomnomnom/anew@latest
     - github.com/tomnomnom/assetfinder@latest
     - github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
